@@ -1,12 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Bringer
+namespace SpaceTrader
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Story intro = new Story();
+            intro.Intro();
+
+            //Player hollick = new Player();
+            //hollick.Hollick();
+
         }
     }
 }
