@@ -5,14 +5,12 @@ using System.Threading;
 
 namespace SpaceTrader
 {
-    class Story
+    public class Story
     {
+       
         public void Intro()
         {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-            Console.Clear();
-
+          
             string load = "Systems: Green\nServers: Green\nConnection: Green\nBCI: Green\nNeural Net: Green\nConsole UI: Green\nControls: Green\nPower: Green\nNAT Type: Open\nLive: Green\nInitiation: Complete\nTRINITY Connection: Green\nBringer: Hollick";
             TypeEffect(load);
             Console.WriteLine("");
@@ -22,11 +20,11 @@ namespace SpaceTrader
             TypeEffect(intro1);
             Console.WriteLine("");
             Console.WriteLine("");
-            string intro2 = "You have been hired by us here at TRINITY in order to pay back your debt for saving your life.  Your official title is now Bringer.  You will be selling the products that are in highest demand, which are Element 115, batteries, memory, nootropics, and Transcenders.  You will travel back and forth to Earth, A Proxima 1, and here, Olympus.  You will meet with traders at Hubs and offer goods and services, or if the prices are cheaper there, buy products and sell it elsewhere.  You will also be able to perform assassinations based upon the requests of the customer, if the price is appropiate.  These are no questions asked deals, for both the products and services.";
+            string intro2 = "You have been hired by us here at TRINITY in order to pay back your debt for saving your life.  Your official title is now Bringer.  You will be selling the products that are in highest demand, which are Element 115, batteries, memory, nootropics, and Transcenders.  You will travel back and forth to Earth, A Proxima 1, and here, Olympus.  You will meet with traders at Hubs and offer goods and services, or if the prices are cheaper there, buy products and sell it elsewhere.";
             TypeEffect(intro2);
             Console.WriteLine("");
             Console.WriteLine("");
-            string intro3 = "In order for you to fully repay your debt, you must generate 50,000,000 ren in total profit.  We will then be happy to acquire your earnings and to give you your own Transcender.  Don't try to use one before you've completed your tasks, because you will be terminated immediately via the BCI inside your brain.  This device was created by us here at TRINITY in order to allow humans to expand consciousness into higher dimensions, free of the limits of a three dimensional body.  This is the ultimate reward for your hard work.";
+            string intro3 = "In order for you to fully repay your debt, you must generate 50,000,000 ren in total profit.  We will then be happy to acquire your earnings and to give you your own Transcender.  Don't try to use one before you've completed your tasks, because you will be terminated immediately via the BCI inside your brain.  This Transcender device was created by us here at TRINITY in order to allow humans to expand consciousness into higher dimensions, free of the limits of a three dimensional body.  This is the ultimate reward for your hard work.";
             TypeEffect(intro3);
             Console.WriteLine("");
             Console.WriteLine("");
@@ -40,22 +38,32 @@ namespace SpaceTrader
             Console.WriteLine("Acquired: 0 Memories");
             Console.WriteLine("Acquired: 5 Element 115");
             Console.WriteLine("Acquired: 5 Transcenders");
-            newPlayer.Transcenders(5);
             Console.WriteLine("Acquired: 20 Nootropics");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("Press ENTER to begin your new life, the clock is ticking.");   // need to create function to make entering black space will pull up menu for planet directory.
+            Console.WriteLine("Enter 3 to begin your new life, the clock is ticking.");   // need to create function to make entering black space will pull up menu for planet directory.
+
+            string result = Console.ReadLine();
+            if (result == "3")
+            {
+                Planet.PlanetsMenuControl();
+            }
+            else
+            {
+                Planet.PlanetsMenuControl();
+            }
 
         }
 
-        public void TypeEffect(string dialogueChar)
+        public static void TypeEffect(string dialogueChar)
         {
             foreach (char x in dialogueChar)
             {
-                Thread.Sleep(1);
+                Thread.Sleep(0);
                 Console.Write(x);
             }
         }
+
 
     }
 }

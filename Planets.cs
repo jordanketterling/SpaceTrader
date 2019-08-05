@@ -7,15 +7,16 @@ namespace SpaceTrader
 {
     public class Planet
     {
-      
+        Player player = new Player();
 
-        public static void Planets()
+        public void Planets()
         {
-
+            PlanetsMenuInput();
         }
 
         public static void PlanetsMenu()
         {
+            Console.Clear();
             Console.WriteLine("STARSHIP PLANET DIRECTORY");
             Console.WriteLine("Type 1 to travel to Earth.");
             Console.WriteLine("Type 2 to travel to Alpha Proxima 1.");
@@ -71,7 +72,7 @@ namespace SpaceTrader
         public static void Earth()
         {
             Console.WriteLine("Welcome to Hub 117 on the beautiful planet Earth. Please enjoy your stay.");
-            EarthHubMenu();
+            EarthBuySell();
         }
 
         public (double, double) EarthLocation()
@@ -106,11 +107,11 @@ namespace SpaceTrader
                 {
                     case 1:
                         Console.Clear();
-                        EarthBuyMenu();
+                        EarthBuyMenuSelect();
                         break;
                     case 2:
                         Console.Clear();
-                        EarthSell();
+                        EarthSellMenuSelect();
                         break;
                     case 3:
                         Console.Clear();
@@ -127,14 +128,7 @@ namespace SpaceTrader
 
         public static int EarthBuyMenu()
         {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
-            double batteries = 75000;
-            double element115 = 100000;
-            double memory = 10000;
-            double tran = 1000000;
-            double nootropics = 50000;
+           
 
             Console.WriteLine("Which item would you like to purchase?");
             Console.WriteLine("Press 1 to buy Batteries");
@@ -181,7 +175,7 @@ namespace SpaceTrader
                         break;
                     case 6:
                         Console.Clear();
-                        EarthHubMenu();
+                        EarthBuySell();
                         break;
                     default:
                         Console.WriteLine("Please enter a valid item.");
@@ -192,15 +186,14 @@ namespace SpaceTrader
 
         }
 
-        public static int Batteries()
+        public static void Batteries()
         {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
             int price = 75000;
+            Console.WriteLine(" ");
             Console.WriteLine("Battery: 75,000 Ren");
             Console.WriteLine("Enter how many Batteries you would like to buy with the max being 15.");
             Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
 
             string input;
             input = Console.ReadLine();
@@ -213,23 +206,24 @@ namespace SpaceTrader
 
             if (x > 15)
             {
-                Console.WriteLine("Outside of max purchase value");
-                Tran();
+                Console.WriteLine("Outside of max purchase value.");
+                Batteries();
             }
 
             int y = x * price;
-            return y;
+
+            Player.Batteries(x, 0);
+            Player.HollickMoney(0, y);
         }
 
-        public static int Element115()
+        public static void Element115()
         {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
             int price = 100000;
+            Console.WriteLine(" ");
             Console.WriteLine("Element 115: 100,000 Ren");
             Console.WriteLine("Enter how much Element 115 you would like to buy with the max being 10.");
             Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
 
             string input;
             input = Console.ReadLine();
@@ -242,23 +236,25 @@ namespace SpaceTrader
 
             if (x > 10)
             {
-                Console.WriteLine("Outside of max purchase value");
-                
+                Console.WriteLine("Outside of max purchase value.");
+                Element115();
             }
 
             int y = x * price;
-            return y;
+
+            Player.Element115(x, 0);
+            Player.HollickMoney(0, y);
         }
 
-        public static int Memory()
+        public static void Memory()
         {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
+            
             int price = 10000;
+            Console.WriteLine(" ");
             Console.WriteLine("Memory: 10,000 Ren");
             Console.WriteLine("Enter how much Memory you would like to buy with the max being 100.");
             Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
 
             string input;
             input = Console.ReadLine();
@@ -271,23 +267,24 @@ namespace SpaceTrader
 
             if (x > 100)
             {
-                Console.WriteLine("Outside of max purchase value");
-                Tran();
+                Console.WriteLine("Outside of max purchase value.");
+                Memory();
             }
 
             int y = x * price;
-            return y;
+
+            Player.Memory(x, 0);
+            Player.HollickMoney(0, y);
         }
 
-        public void Tran()
+        public static void Tran()
         {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
             int price = 1000000;
+            Console.WriteLine(" ");
             Console.WriteLine("Transcender: 1,000,000 Ren");
-            Console.WriteLine("Enter how many Nootropics you would like to buy with the max being 5.");
+            Console.WriteLine("Enter how many Transcenders you would like to buy with the max being 5.");
             Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
 
             string input;
             input = Console.ReadLine();
@@ -305,24 +302,21 @@ namespace SpaceTrader
                 Tran();
             }
 
-            int z = newPlayer.transenders;
-            newPlayer.Transcenders(z, x);
-
+            
             int y = x * price;
 
-           
-        
+            Player.Transcenders(x, 0);
+            Player.HollickMoney(0, y);
         }
 
-        public static int Nootropics()
+        public static void Nootropics()
         {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
             int price = 50000;
+            Console.WriteLine(" ");
             Console.WriteLine("Nootropics: 50,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to buy with the max being 20.");
             Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
 
             string input;
             input = Console.ReadLine();
@@ -335,65 +329,234 @@ namespace SpaceTrader
 
             if (x > 20)
             {
-                Console.WriteLine("Outside of max purchase value");
-                Tran();
+                Console.WriteLine("Outside of max purchase value.");
+                Nootropics();
             }
 
             int y = x * price;
-            return y;
+
+            Player.Nootropics(x, 0);
+            Player.HollickMoney(0, y);
         }
 
 
-        public static void BatteryInventoryAdd()
-        {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
-
-        }
-
-        public static void Element115InventoryAdd()
-        {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
-
-        }
-
-        public static void MemoryInventoryAdd()
-        {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
-
-        }
-
-        public static void TranscenderInventoryAdd()
-        {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
-
-        }
-
-        public static void NootropicInventoryAdd()
-        {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
-
-
-        }
+        
 
 
         // Earth Sell
-        public static void EarthSell()
+        public static int EarthSellMenu()
         {
-            Player newPlayer = new Player();
-            newPlayer.Hollick();
+            Console.WriteLine(" ");
+            Console.WriteLine("Which item would you like to sell?");
+            Console.WriteLine("Press 1 to sell Batteries");
+            Console.WriteLine("Press 2 to sell Element 115");
+            Console.WriteLine("Press 3 to sell Memory");
+            Console.WriteLine("Press 4 to sell Transcenders");
+            Console.WriteLine("Press 5 to sell Nootropics");
+            Console.WriteLine("Press 6 to return to Buy/Sell Menu");
+            Console.WriteLine(" ");
 
+            string input;
+            input = Console.ReadLine();
+            int x = int.Parse(input);
+            return x;
 
         }
 
+        public static void EarthSellMenuSelect()
+        {
+            bool addInput = false;
+
+            do
+            {
+                int menuSelect = EarthSellMenu();
+                switch (menuSelect)
+                {
+                    case 1:
+                        Console.Clear();
+                        EarthSellBatteries();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        EarthSellElement115();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        EarthSellMemory();
+                        break;
+                    case 4:
+                        Console.Clear();
+                        EarthSellTran();
+                        break;
+                    case 5:
+                        Console.Clear();
+                        EarthSellNootropics();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        EarthHubMenu();
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a valid item.");
+                        break;
+
+                }
+            } while (!addInput);
+
+        }
+
+        public static void EarthSellBatteries()
+        {
+            int price = 75000;
+            Console.WriteLine(" ");
+            Console.WriteLine("Battery: 75,000 Ren");
+            Console.WriteLine("Enter how many Batteries you would like to sell with the max being 30.");
+            Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
+
+            string input;
+            input = Console.ReadLine();
+            int x = int.Parse(input);
+
+            if (x < 1)
+            {
+                EarthSellMenuSelect();
+            }
+
+            if (x > 30)
+            {
+                Console.WriteLine("Outside of max sell value.");
+                EarthSellBatteries();
+            }
+
+            int y = x * price;
+
+            Player.Batteries(0, x);
+            Player.HollickMoney(y, 0);
+        }
+
+        public static void EarthSellElement115()
+        {
+            int price = 100000;
+            Console.WriteLine(" ");
+            Console.WriteLine("Element 115: 100,000 Ren");
+            Console.WriteLine("Enter how much Element 115 you would like to sell with the max being 20.");
+            Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
+
+            string input;
+            input = Console.ReadLine();
+            int x = int.Parse(input);
+
+            if (x < 1)
+            {
+                EarthSellMenuSelect();
+            }
+
+            if (x > 20)
+            {
+                Console.WriteLine("Outside of max sell value.");
+                EarthSellElement115();
+            }
+
+            int y = x * price;
+
+            Player.Element115(0, x);
+            Player.HollickMoney(y, 0);
+        }
+
+        public static void EarthSellMemory()
+        {
+          
+
+            int price = 10000;
+            Console.WriteLine(" ");
+            Console.WriteLine("Memory: 10,000 Ren");
+            Console.WriteLine("Enter how much Memory you would like to sell with the max being 200.");
+            Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
+
+            string input;
+            input = Console.ReadLine();
+            int x = int.Parse(input);
+
+            if (x < 1)
+            {
+                EarthSellMenuSelect();
+            }
+
+            if (x > 200)
+            {
+                Console.WriteLine("Outside of max sell value.");
+                EarthSellMemory();
+            }
+
+            int y = x * price;
+
+            Player.Memory(0, x);
+            Player.HollickMoney(y, 0);
+        }
+
+        public static void EarthSellTran()
+        {
+            int price = 1000000;
+            Console.WriteLine(" ");
+            Console.WriteLine("Transcender: 1,000,000 Ren");
+            Console.WriteLine("Enter how many Nootropics you would like to sell with the max being 10.");
+            Console.WriteLine("Enter 0 to return to the item select menu.");
+            Console.WriteLine(" ");
+
+            string input;
+            input = Console.ReadLine();
+            int x = int.Parse(input);
+
+
+            if (x < 1)
+            {
+                EarthSellMenuSelect();
+            }
+
+            if (x > 10)
+            {
+                Console.WriteLine("Outside of max sell value.");
+                EarthSellTran();
+            }
+
+
+            int y = x * price;
+
+            Player.Transcenders(0, x);
+            Player.HollickMoney(y, 0);
+        }
+
+        public static void EarthSellNootropics()
+        {
+            int price = 50000;
+            Console.WriteLine(" ");
+            Console.WriteLine("Nootropics: 50,000 Ren");
+            Console.WriteLine("Enter how many Nootropics you would like to sell with the max being 40.");
+            Console.WriteLine("Enter 0 to return to the item select menu.");
+
+            string input;
+            input = Console.ReadLine();
+            int x = int.Parse(input);
+
+            if (x < 1)
+            {
+                EarthSellMenuSelect();
+            }
+
+            if (x > 40)
+            {
+                Console.WriteLine("Outside of max sell value.");
+                EarthSellNootropics();
+            }
+
+            int y = x * price;
+
+            Player.Nootropics(0, x);
+            Player.HollickMoney(y, 0);
+        }
         // Alpha Proxima 1
         public static void AlphaProxima1()
         {

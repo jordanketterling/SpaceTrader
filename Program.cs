@@ -8,14 +8,17 @@ namespace SpaceTrader
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             Story intro = new Story();
             intro.Intro();
 
-            //Player hollick = new Player();
-            //hollick.Hollick();
+            Planet planet = new Planet();
+            planet.Planets();
 
+            Player hollick = new Player();
+            hollick.Hollick();
         }
     }
 }

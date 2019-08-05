@@ -10,41 +10,48 @@ namespace SpaceTrader
     {
         Planet planet = new Planet();
 
-        public int transenders;
+        public int transcenders;
+        public int money;
+        public int age;
+        public int element;
+        public int memory;
+        public int nootropics;
+        public int batteries;
         public void Hollick()
         {
             Console.Write("HUD | ");
             Console.WriteLine("Bringer: Hollick ");
-            Console.Write("Age: " + HollickAge() + " |");
-            Console.Write(" Ren: " + HollickMoney() + " |");
+            Console.Write("Age: " + age + " |");
+            Console.Write(" Ren: " + money + " |");
             Console.Write(" Location: " + HollickLocation() + " |");
-            Console.Write(" INVENTORY( Batteries: " + Batteries() + ",");
-            Console.Write(" Element 115: " + Element115() + ",");
-            Console.Write(" Memory: " + Memory() + ",");
-            Console.Write(" Transcenders: " + Transcenders());
-            Console.Write(" Nootropics: " + Nootropics() + " )");
+            Console.Write(" INVENTORY( Batteries: " + batteries + ",");
+            Console.Write(" Element 115: " + element + ",");
+            Console.Write(" Memory: " + memory + ",");
+            Console.Write(" Transcenders: " + transcenders + ",");
+            Console.Write(" Nootropics: " + nootropics + " )");
             Console.WriteLine(" ");
             Console.WriteLine("______________________________________________________________________________________________________________________");
 
         }
 
-        public int HollickAge()
+        public static int HollickAge(int x)
         {
             int age = 18;
 
-
+            age += x;
 
             return age;
         }
 
 
-        public int HollickMoney()
+        public static void HollickMoney(int x, int y)
         {
             int money = 500000;
 
+            money += x;  //Sell
 
+            money -= y;  //Buy
 
-            return money;
         }
 
 
@@ -59,51 +66,61 @@ namespace SpaceTrader
         }
         
         //INVENTORY
-        public void Transcenders(int x, int y)
+        public static int Transcenders(int x, int y)
         {
 
-            x += y;
+            int transcenders = 5;
 
-            transenders = x;
+            transcenders += x; //Buy
 
-            
+            transcenders -= y; //Sell
+
+            return transcenders;
         }
 
 
-        public int Memory()
+        public static int Memory(int x, int y)
         {
-            int memory = 10;
+            int memory = 0;
 
-            
+            memory += x;  //Buy
+
+            memory -= y;  //Sell
 
             return memory;
         }
 
 
-        public int Element115()
+        public static int Element115(int x, int y)
         {
             int element = 5;
 
+            element += x;  //Buy
 
+            element -= y; //Sell
 
             return element;
         }
 
 
-        public int Batteries()
+        public static int Batteries(int x, int y)
         {
             int batteries = 15;
 
+            batteries += x;  //Buy
 
+            batteries -= y;  //Sell
 
             return batteries;
         }
 
-        public int Nootropics()
+        public static int Nootropics(int x, int y)
         {
             int nootropics = 20;
 
+            nootropics += x;  //Buy
 
+            nootropics -= y;  //Sell
 
             return nootropics;
         }
