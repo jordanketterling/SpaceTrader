@@ -5,8 +5,9 @@ using System.Text;
 
 namespace SpaceTrader
 {
-    class Planet
+    public class Planet
     {
+      
 
         public static void Planets()
         {
@@ -242,7 +243,7 @@ namespace SpaceTrader
             if (x > 10)
             {
                 Console.WriteLine("Outside of max purchase value");
-                Tran();
+                
             }
 
             int y = x * price;
@@ -278,7 +279,7 @@ namespace SpaceTrader
             return y;
         }
 
-        public static int Tran()
+        public void Tran()
         {
             Player newPlayer = new Player();
             newPlayer.Hollick();
@@ -300,14 +301,17 @@ namespace SpaceTrader
 
             if (x > 5)
             {
-                Console.WriteLine("Outside of max purchase value");
+                Console.WriteLine("Outside of max purchase value.");
                 Tran();
             }
 
-            newPlayer.Transcenders(x);
+            int z = newPlayer.transenders;
+            newPlayer.Transcenders(z, x);
 
             int y = x * price;
-            return y;
+
+           
+        
         }
 
         public static int Nootropics()
@@ -382,7 +386,7 @@ namespace SpaceTrader
 
 
         // Earth Sell
-        public static double EarthSell()
+        public static void EarthSell()
         {
             Player newPlayer = new Player();
             newPlayer.Hollick();

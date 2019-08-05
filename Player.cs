@@ -8,6 +8,9 @@ namespace SpaceTrader
 {
     public class Player
     {
+        Planet planet = new Planet();
+
+        public int transenders;
         public void Hollick()
         {
             Console.Write("HUD | ");
@@ -54,15 +57,16 @@ namespace SpaceTrader
 
             return location;
         }
-
+        
         //INVENTORY
-        public int Transcenders(int x)
+        public void Transcenders(int x, int y)
         {
 
-            int current;
-            int z = current + x;
+            x += y;
 
-            return current;
+            transenders = x;
+
+            
         }
 
 
@@ -70,7 +74,7 @@ namespace SpaceTrader
         {
             int memory = 10;
 
-
+            
 
             return memory;
         }
