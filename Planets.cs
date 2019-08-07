@@ -7,10 +7,11 @@ namespace SpaceTrader
 {
     public class Planet
     {
-        
-        public void Planets()
+        Player hollick;
+
+        public Planet(Player hollick)
         {
-            PlanetsMenuInput();
+            this.hollick = hollick;
         }
 
         public static void PlanetsMenu()
@@ -36,7 +37,7 @@ namespace SpaceTrader
             return int.Parse(input);
         }
 
-        public static void PlanetsMenuControl()
+        public void PlanetsMenuControl()
         {
             bool addInput = false;
 
@@ -68,7 +69,7 @@ namespace SpaceTrader
 
 
         // Earth
-        public static void Earth()
+        public void Earth()
         {
             Console.WriteLine("Welcome to Hub 117 on the beautiful planet Earth. Please enjoy your stay.");
             EarthBuySell();
@@ -82,12 +83,17 @@ namespace SpaceTrader
             return location;
         }
 
-        public static int EarthHubMenu()
+        public int EarthHubMenu()
         {
+            Console.WriteLine(" ");
+            hollick.Hollick();
+            Console.WriteLine(" ");
             Console.WriteLine("Would you like to buy or sell?");
             Console.WriteLine("Press 1 to Buy.");
             Console.WriteLine("Press 2 to Sell.");
             Console.WriteLine("Press 3 to return to your starship.");
+
+          
 
             string input;
             input = Console.ReadLine();
@@ -95,7 +101,7 @@ namespace SpaceTrader
             return x;
         }
 
-        public static void EarthBuySell()
+        public void EarthBuySell()
         {
             bool addInput = false;
 
@@ -125,10 +131,11 @@ namespace SpaceTrader
 
         }
 
-        public static int EarthBuyMenu()
+        public int EarthBuyMenu()
         {
-           
-
+            Console.Clear();
+            hollick.Hollick();
+            Console.WriteLine(" ");
             Console.WriteLine("Which item would you like to purchase?");
             Console.WriteLine("Press 1 to buy Batteries");
             Console.WriteLine("Press 2 to buy Element 115");
@@ -136,6 +143,7 @@ namespace SpaceTrader
             Console.WriteLine("Press 4 to buy Transcenders");
             Console.WriteLine("Press 5 to buy Nootropics");
             Console.WriteLine("Press 6 to return to Buy/Sell Menu");
+            Console.WriteLine(" ");
 
             string input;
             input = Console.ReadLine();
@@ -143,7 +151,7 @@ namespace SpaceTrader
             return x;
         }
 
-        public static void EarthBuyMenuSelect()
+        public void EarthBuyMenuSelect()
         {
             bool addInput = false;
 
@@ -185,9 +193,11 @@ namespace SpaceTrader
 
         }
 
-        public static void Batteries()
+        public void Batteries()
         {
             int price = 75000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Battery: 75,000 Ren");
             Console.WriteLine("Enter how many Batteries you would like to buy with the max being 15.");
@@ -211,13 +221,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Batteries(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.batteries += x;
+
+            hollick.money -= y;
         }
 
-        public static void Element115()
+        public void Element115()
         {
             int price = 100000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Element 115: 100,000 Ren");
             Console.WriteLine("Enter how much Element 115 you would like to buy with the max being 10.");
@@ -241,14 +254,17 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Element115(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.element += x;
+
+            hollick.money -= y;
         }
 
-        public static void Memory()
+        public void Memory()
         {
-            
+
             int price = 10000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Memory: 10,000 Ren");
             Console.WriteLine("Enter how much Memory you would like to buy with the max being 100.");
@@ -272,13 +288,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Memory(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.memory += x;
+
+            hollick.money -= y;
         }
 
-        public static void Tran()
+        public void Tran()
         {
             int price = 1000000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Transcender: 1,000,000 Ren");
             Console.WriteLine("Enter how many Transcenders you would like to buy with the max being 5.");
@@ -301,16 +320,19 @@ namespace SpaceTrader
                 Tran();
             }
 
-            
+
             int y = x * price;
 
-            Player.Transcenders(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.transcenders += x;
+
+            hollick.money -= y;
         }
 
-        public static void Nootropics()
+        public void Nootropics()
         {
             int price = 50000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Nootropics: 50,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to buy with the max being 20.");
@@ -334,17 +356,20 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Nootropics(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.nootropics += x;
+
+            hollick.money -= y;
         }
 
 
-        
+
 
 
         // Earth Sell
-        public static int EarthSellMenu()
+        public int EarthSellMenu()
         {
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Which item would you like to sell?");
             Console.WriteLine("Press 1 to sell Batteries");
@@ -362,7 +387,7 @@ namespace SpaceTrader
 
         }
 
-        public static void EarthSellMenuSelect()
+        public void EarthSellMenuSelect()
         {
             bool addInput = false;
 
@@ -404,9 +429,11 @@ namespace SpaceTrader
 
         }
 
-        public static void EarthSellBatteries()
+        public void EarthSellBatteries()
         {
             int price = 75000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Battery: 75,000 Ren");
             Console.WriteLine("Enter how many Batteries you would like to sell with the max being 30.");
@@ -430,13 +457,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Batteries(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.batteries -= x;
+
+            hollick.money += y;
         }
 
-        public static void EarthSellElement115()
+        public void EarthSellElement115()
         {
             int price = 100000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Element 115: 100,000 Ren");
             Console.WriteLine("Enter how much Element 115 you would like to sell with the max being 20.");
@@ -460,15 +490,18 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Element115(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.element -= x;
+
+            hollick.money += y;
         }
 
-        public static void EarthSellMemory()
+        public void EarthSellMemory()
         {
-          
+
 
             int price = 10000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Memory: 10,000 Ren");
             Console.WriteLine("Enter how much Memory you would like to sell with the max being 200.");
@@ -492,13 +525,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Memory(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.memory -= x;
+
+            hollick.money += y;
         }
 
-        public static void EarthSellTran()
+        public void EarthSellTran()
         {
             int price = 1000000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Transcender: 1,000,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to sell with the max being 10.");
@@ -524,13 +560,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Transcenders(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.transcenders -= x;
+
+            hollick.money += y;
         }
 
-        public static void EarthSellNootropics()
+        public void EarthSellNootropics()
         {
             int price = 50000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Nootropics: 50,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to sell with the max being 40.");
@@ -553,8 +592,9 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Nootropics(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.nootropics -= x;
+
+            hollick.money += y;
         }
 
 
@@ -572,7 +612,7 @@ namespace SpaceTrader
             return location;
         }
 
-        public static void AlphaProxima1()
+        public void AlphaProxima1()
         {
             Console.WriteLine();
             Console.WriteLine("Welcome to Hub Elon on the wonderous planet Alpha Proxima 1. Please enjoy your stay.");
@@ -580,8 +620,11 @@ namespace SpaceTrader
         }
 
 
-        public static int AP1HubMenu()
+        public int AP1HubMenu()
         {
+            Console.WriteLine(" ");
+            hollick.Hollick();
+            Console.WriteLine(" ");
             Console.WriteLine("Would you like to buy or sell?");
             Console.WriteLine("Press 1 to Buy.");
             Console.WriteLine("Press 2 to Sell.");
@@ -593,7 +636,7 @@ namespace SpaceTrader
             return x;
         }
 
-        public static void AP1BuySell()
+        public void AP1BuySell()
         {
             bool addInput = false;
 
@@ -623,9 +666,10 @@ namespace SpaceTrader
 
         }
 
-        public static int AP1BuyMenu()
+        public int AP1BuyMenu()
         {
-
+            Console.Clear();
+            hollick.Hollick();
 
             Console.WriteLine("Which item would you like to purchase?");
             Console.WriteLine("Press 1 to buy Batteries");
@@ -641,7 +685,7 @@ namespace SpaceTrader
             return x;
         }
 
-        public static void AP1BuyMenuSelect()
+        public void AP1BuyMenuSelect()
         {
             bool addInput = false;
 
@@ -683,9 +727,11 @@ namespace SpaceTrader
 
         }
 
-        public static void AP1BuyBatteries()
+        public void AP1BuyBatteries()
         {
             int price = 10000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Battery: 10,000 Ren");
             Console.WriteLine("Enter how many Batteries you would like to buy with the max being 15.");
@@ -709,13 +755,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Batteries(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.batteries += x;
+
+            hollick.money -= y;
         }
 
-        public static void AP1BuyElement115()
+        public void AP1BuyElement115()
         {
             int price = 130000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Element 115: 130,000 Ren");
             Console.WriteLine("Enter how much Element 115 you would like to buy with the max being 10.");
@@ -739,14 +788,17 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Element115(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.element += x;
+
+            hollick.money -= y;
         }
 
-        public static void AP1BuyMemory()
+        public void AP1BuyMemory()
         {
 
             int price = 25000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Memory: 25,000 Ren");
             Console.WriteLine("Enter how much Memory you would like to buy with the max being 100.");
@@ -770,13 +822,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Memory(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.memory += x;
+
+            hollick.money -= y;
         }
 
-        public static void AP1BuyTran()
+        public void AP1BuyTran()
         {
             int price = 1200000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Transcender: 1,200,000 Ren");
             Console.WriteLine("Enter how many Transcenders you would like to buy with the max being 5.");
@@ -802,13 +857,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Transcenders(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.transcenders += x;
+
+            hollick.money -= y;
         }
 
-        public static void AP1BuyNootropics()
+        public void AP1BuyNootropics()
         {
             int price = 40000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Nootropics: 40,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to buy with the max being 20.");
@@ -832,8 +890,9 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Nootropics(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.nootropics += x;
+
+            hollick.money -= y;
         }
 
 
@@ -841,8 +900,9 @@ namespace SpaceTrader
 
 
         // AP1 Sell
-        public static int AP1SellMenu()
+        public int AP1SellMenu()
         {
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Which item would you like to sell?");
             Console.WriteLine("Press 1 to sell Batteries");
@@ -860,7 +920,7 @@ namespace SpaceTrader
 
         }
 
-        public static void AP1SellMenuSelect()
+        public void AP1SellMenuSelect()
         {
             bool addInput = false;
 
@@ -902,9 +962,11 @@ namespace SpaceTrader
 
         }
 
-        public static void AP1SellBatteries()
+        public void AP1SellBatteries()
         {
             int price = 10000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Battery: 10,000 Ren");
             Console.WriteLine("Enter how many Batteries you would like to sell with the max being 30.");
@@ -928,13 +990,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Batteries(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.batteries -= x;
+
+            hollick.money += y;
         }
 
-        public static void AP1SellElement115()
+        public void AP1SellElement115()
         {
             int price = 130000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Element 115: 130,000 Ren");
             Console.WriteLine("Enter how much Element 115 you would like to sell with the max being 20.");
@@ -958,15 +1023,18 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Element115(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.element -= x;
+
+            hollick.money += y;
         }
 
-        public static void AP1SellMemory()
+        public void AP1SellMemory()
         {
 
 
             int price = 25000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Memory: 25,000 Ren");
             Console.WriteLine("Enter how much Memory you would like to sell with the max being 200.");
@@ -990,13 +1058,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Memory(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.memory -= x;
+
+            hollick.money += y;
         }
 
-        public static void AP1SellTran()
+        public void AP1SellTran()
         {
             int price = 1200000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Transcender: 1,200,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to sell with the max being 10.");
@@ -1022,13 +1093,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Transcenders(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.transcenders -= x;
+
+            hollick.money += y;
         }
 
-        public static void AP1SellNootropics()
+        public void AP1SellNootropics()
         {
             int price = 40000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Nootropics: 40,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to sell with the max being 40.");
@@ -1051,15 +1125,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Nootropics(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.nootropics -= x;
+
+            hollick.money += y;
         }
 
 
 
 
         // Olympus____________________________________________________________________________________________________________
-        public static void Olympus()
+        public void Olympus()
         {
             Console.Clear();
             Console.WriteLine("Welcome to Hub TRINITY on the megastructure planet Olympus. We hope you enjoy your stay, Hollick.");
@@ -1074,8 +1149,11 @@ namespace SpaceTrader
             return location;
         }
 
-        public static int OlympusHubMenu()
+        public int OlympusHubMenu()
         {
+            Console.WriteLine(" ");
+            hollick.Hollick();
+            Console.WriteLine(" ");
             Console.WriteLine("Would you like to buy or sell?");
             Console.WriteLine("Press 1 to Buy.");
             Console.WriteLine("Press 2 to Sell.");
@@ -1087,7 +1165,7 @@ namespace SpaceTrader
             return x;
         }
 
-        public static void OlympusBuySell()
+        public void OlympusBuySell()
         {
             bool addInput = false;
 
@@ -1117,9 +1195,10 @@ namespace SpaceTrader
 
         }
 
-        public static int OlympusBuyMenu()
+        public int OlympusBuyMenu()
         {
-
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Which item would you like to purchase?");
             Console.WriteLine("Press 1 to buy Batteries");
@@ -1136,7 +1215,7 @@ namespace SpaceTrader
             return x;
         }
 
-        public static void OlympusBuyMenuSelect()
+        public void OlympusBuyMenuSelect()
         {
             bool addInput = false;
 
@@ -1178,9 +1257,11 @@ namespace SpaceTrader
 
         }
 
-        public static void OlympusBuyBatteries()
+        public void OlympusBuyBatteries()
         {
             int price = 75000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Battery: 75,000 Ren");
             Console.WriteLine("Enter how many Batteries you would like to buy with the max being 15.");
@@ -1204,13 +1285,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Batteries(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.batteries += x;
+
+            hollick.money -= y;
         }
 
-        public static void OlympusBuyElement115()
+        public void OlympusBuyElement115()
         {
             int price = 50000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Element 115: 50,000 Ren");
             Console.WriteLine("Enter how much Element 115 you would like to buy with the max being 10.");
@@ -1234,14 +1318,17 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Element115(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.element += x;
+
+            hollick.money -= y;
         }
 
-        public static void OlympusBuyMemory()
+        public void OlympusBuyMemory()
         {
 
             int price = 50000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Memory: 50,000 Ren");
             Console.WriteLine("Enter how much Memory you would like to buy with the max being 100.");
@@ -1265,13 +1352,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Memory(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.memory += x;
+
+            hollick.money -= y;
         }
 
-        public static void OlympusBuyTran()
+        public void OlympusBuyTran()
         {
             int price = 0;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Transcender: 0 Ren");
             Console.WriteLine("Why would we sell you more transcenders? Make do with what you were issued.");
@@ -1297,13 +1387,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Transcenders(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.transcenders += x;
+
+            hollick.money -= y;
         }
 
-        public static void OlympusBuyNootropics()
+        public void OlympusBuyNootropics()
         {
             int price = 10000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Nootropics: 10,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to buy with the max being 20.");
@@ -1327,8 +1420,9 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Nootropics(x, 0);
-            Player.HollickMoney(0, y);
+            hollick.batteries += x;
+
+            hollick.money -= y;
         }
 
 
@@ -1336,9 +1430,11 @@ namespace SpaceTrader
 
 
         // Olympus Sell
-        public static int OlympusSellMenu()
+        public int OlympusSellMenu()
         {
+
             Console.WriteLine(" ");
+
             Console.WriteLine("Which item would you like to sell?");
             Console.WriteLine("Press 1 to sell Batteries");
             Console.WriteLine("Press 2 to sell Element 115");
@@ -1355,7 +1451,7 @@ namespace SpaceTrader
 
         }
 
-        public static void OlympusSellMenuSelect()
+        public void OlympusSellMenuSelect()
         {
             bool addInput = false;
 
@@ -1397,9 +1493,11 @@ namespace SpaceTrader
 
         }
 
-        public static void OlympusSellBatteries()
+        public void OlympusSellBatteries()
         {
             int price = 75000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Battery: 75,000 Ren");
             Console.WriteLine("Enter how many Batteries you would like to sell with the max being 30.");
@@ -1423,13 +1521,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Batteries(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.batteries -= x;
+
+            hollick.money += y;
         }
 
-        public static void OlympusSellElement115()
+        public void OlympusSellElement115()
         {
             int price = 50000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Element 115: 50,000 Ren");
             Console.WriteLine("Enter how much Element 115 you would like to sell with the max being 20.");
@@ -1453,15 +1554,18 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Element115(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.element -= x;
+
+            hollick.money += y;
         }
 
-        public static void OlympusSellMemory()
+        public void OlympusSellMemory()
         {
 
 
             int price = 50000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Memory: 50,000 Ren");
             Console.WriteLine("Enter how much Memory you would like to sell with the max being 200.");
@@ -1485,13 +1589,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Memory(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.memory -= x;
+
+            hollick.money += y;
         }
 
-        public static void OlympusSellTran()
+        public void OlympusSellTran()
         {
             int price = 0;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Transcender: 0 Ren");
             Console.WriteLine("What could possibly make you think that we would want to buy them back?  Are you requesting early termination?");
@@ -1517,13 +1624,16 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Transcenders(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.transcenders -= x;
+
+            hollick.money += y;
         }
 
-        public static void OlympusSellNootropics()
+        public void OlympusSellNootropics()
         {
             int price = 10000;
+            Console.Clear();
+            hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Nootropics: 10,000 Ren");
             Console.WriteLine("Enter how many Nootropics you would like to sell with the max being 40.");
@@ -1547,8 +1657,23 @@ namespace SpaceTrader
 
             int y = x * price;
 
-            Player.Nootropics(0, x);
-            Player.HollickMoney(y, 0);
+            hollick.nootropics -= x;
+
+            hollick.money += y;
+        }
+
+
+
+
+
+        // Story development
+
+        public void endGame()
+        {
+            if (hollick.money > 3000000)
+            {
+                Console.WriteLine("Damn ur makin big bills.");
+            }
         }
     }
 }

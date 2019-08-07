@@ -7,10 +7,19 @@ namespace SpaceTrader
 {
     public class Story
     {
-       
+        Player hollick;
+        Planet planet;
+
+        public Story(Player hollick)
+        {
+            this.hollick = hollick;
+            this.planet = new Planet(hollick);
+        }
+
+        
         public void Intro()
         {
-          
+
             string load = "Systems: Green\nServers: Green\nConnection: Green\nBCI: Green\nNeural Net: Green\nConsole UI: Green\nControls: Green\nPower: Green\nNAT Type: Open\nLive: Green\nInitiation: Complete\nTRINITY Connection: Green\nBringer: Hollick";
             TypeEffect(load);
             Console.WriteLine("");
@@ -24,7 +33,7 @@ namespace SpaceTrader
             TypeEffect(intro2);
             Console.WriteLine("");
             Console.WriteLine("");
-            string intro3 = "In order for you to fully repay your debt, you must generate 50,000,000 ren in total profit.  We will then be happy to acquire your earnings and to give you your own Transcender.  Don't try to use one before you've completed your tasks, because you will be terminated immediately via the BCI inside your brain.  This Transcender device was created by us here at TRINITY in order to allow humans to expand consciousness into higher dimensions, free of the limits of a three dimensional body.  This is the ultimate reward for your hard work.";
+            string intro3 = "In order for you to fully repay your debt, you must generate 100,000,000 ren in total profit.  We will then be happy to acquire your earnings and to give you your own Transcender.  Don't try to use one before you've completed your tasks, because you will be terminated immediately via the BCI inside your brain.  This Transcender device was created by us here at TRINITY in order to allow humans to expand consciousness into higher dimensions, free of the limits of a three dimensional body.  This is the ultimate reward for your hard work.";
             TypeEffect(intro3);
             Console.WriteLine("");
             Console.WriteLine("");
@@ -33,24 +42,24 @@ namespace SpaceTrader
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("Acquired: Starship");
-            Console.WriteLine("Acquired: 500000 Ren");
-            Console.WriteLine("Acquired: 15 Batteries");
-            Console.WriteLine("Acquired: 0 Memories");
-            Console.WriteLine("Acquired: 5 Element 115");
-            Console.WriteLine("Acquired: 5 Transcenders");
-            Console.WriteLine("Acquired: 20 Nootropics");
+            Console.WriteLine("Acquired:  Ren");
+            Console.WriteLine($"Acquired: {hollick.batteries} Batteries");
+            Console.WriteLine($"Acquired: {hollick.memory} Memories");
+            Console.WriteLine($"Acquired: {hollick.element} Element 115");
+            Console.WriteLine($"Acquired: {hollick.transcenders} Transcenders");
+            Console.WriteLine($"Acquired: {hollick.nootropics} Nootropics");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("Enter 3 to begin your new life, the clock is ticking.");   // need to create function to make entering black space will pull up menu for planet directory.
+            Console.WriteLine("Press ENTER to begin your new life, the clock is ticking.");   // need to create function to make entering black space will pull up menu for planet directory.
 
             string result = Console.ReadLine();
-            if (result == "3")
+            if (result == " ")
             {
-                Planet.PlanetsMenuControl();
+                planet.PlanetsMenuControl();
             }
             else
             {
-                Planet.PlanetsMenuControl();
+                planet.PlanetsMenuControl();
             }
 
         }
