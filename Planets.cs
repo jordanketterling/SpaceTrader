@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 
-namespace SpaceTrader
+namespace Bringer
 {
     public class Planet
     {
@@ -39,6 +40,24 @@ namespace SpaceTrader
 
         public void PlanetsMenuControl()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -59,7 +78,9 @@ namespace SpaceTrader
                         Olympus();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid destination.");
+                        PlanetsMenuInput();
                         break;
 
                 }
@@ -71,6 +92,12 @@ namespace SpaceTrader
         // Earth
         public void Earth()
         {
+            hollick.age += 2;
+
+            Console.WriteLine("On your way to Earth... and a really long time goes by.");
+            Console.ReadLine();
+            Console.Clear();
+
             Console.WriteLine("Welcome to Hub 117 on the beautiful planet Earth. Please enjoy your stay.");
             EarthBuySell();
         }
@@ -85,6 +112,20 @@ namespace SpaceTrader
 
         public int EarthHubMenu()
         {
+            
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             Console.WriteLine(" ");
             hollick.Hollick();
             Console.WriteLine(" ");
@@ -103,6 +144,24 @@ namespace SpaceTrader
 
         public void EarthBuySell()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -123,7 +182,9 @@ namespace SpaceTrader
                         PlanetsMenuControl();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid request.");
+                        EarthHubMenu();
                         break;
 
                 }
@@ -133,6 +194,8 @@ namespace SpaceTrader
 
         public int EarthBuyMenu()
         {
+
+
             Console.Clear();
             hollick.Hollick();
             Console.WriteLine(" ");
@@ -153,6 +216,24 @@ namespace SpaceTrader
 
         public void EarthBuyMenuSelect()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -186,6 +267,7 @@ namespace SpaceTrader
                         break;
                     default:
                         Console.WriteLine("Please enter a valid item.");
+                        EarthBuyMenu();
                         break;
 
                 }
@@ -224,6 +306,8 @@ namespace SpaceTrader
             hollick.batteries += x;
 
             hollick.money -= y;
+
+            
         }
 
         public void Element115()
@@ -257,6 +341,8 @@ namespace SpaceTrader
             hollick.element += x;
 
             hollick.money -= y;
+
+            
         }
 
         public void Memory()
@@ -291,10 +377,22 @@ namespace SpaceTrader
             hollick.memory += x;
 
             hollick.money -= y;
+
+           
         }
 
         public void Tran()
         {
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+            }
+
             int price = 1000000;
             Console.Clear();
             hollick.Hollick();
@@ -326,10 +424,13 @@ namespace SpaceTrader
             hollick.transcenders += x;
 
             hollick.money -= y;
+
+            
         }
 
         public void Nootropics()
         {
+
             int price = 50000;
             Console.Clear();
             hollick.Hollick();
@@ -359,6 +460,7 @@ namespace SpaceTrader
             hollick.nootropics += x;
 
             hollick.money -= y;
+
         }
 
 
@@ -368,6 +470,7 @@ namespace SpaceTrader
         // Earth Sell
         public int EarthSellMenu()
         {
+
             Console.Clear();
             hollick.Hollick();
             Console.WriteLine(" ");
@@ -389,6 +492,24 @@ namespace SpaceTrader
 
         public void EarthSellMenuSelect()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -418,10 +539,12 @@ namespace SpaceTrader
                         break;
                     case 6:
                         Console.Clear();
-                        EarthHubMenu();
+                        EarthBuySell();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid item.");
+                        EarthSellMenu();
                         break;
 
                 }
@@ -460,6 +583,7 @@ namespace SpaceTrader
             hollick.batteries -= x;
 
             hollick.money += y;
+
         }
 
         public void EarthSellElement115()
@@ -493,6 +617,7 @@ namespace SpaceTrader
             hollick.element -= x;
 
             hollick.money += y;
+
         }
 
         public void EarthSellMemory()
@@ -528,6 +653,7 @@ namespace SpaceTrader
             hollick.memory -= x;
 
             hollick.money += y;
+
         }
 
         public void EarthSellTran()
@@ -563,6 +689,7 @@ namespace SpaceTrader
             hollick.transcenders -= x;
 
             hollick.money += y;
+
         }
 
         public void EarthSellNootropics()
@@ -595,6 +722,7 @@ namespace SpaceTrader
             hollick.nootropics -= x;
 
             hollick.money += y;
+
         }
 
 
@@ -613,7 +741,14 @@ namespace SpaceTrader
         }
 
         public void AlphaProxima1()
+
         {
+            hollick.age += 1;
+
+            Console.WriteLine("On your way to Alpha Proxima 1... and a really really long time goes by.");
+            Console.ReadLine();
+            Console.Clear();
+
             Console.WriteLine();
             Console.WriteLine("Welcome to Hub Elon on the wonderous planet Alpha Proxima 1. Please enjoy your stay.");
             AP1BuySell();
@@ -622,6 +757,7 @@ namespace SpaceTrader
 
         public int AP1HubMenu()
         {
+
             Console.WriteLine(" ");
             hollick.Hollick();
             Console.WriteLine(" ");
@@ -638,6 +774,22 @@ namespace SpaceTrader
 
         public void AP1BuySell()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+            }
+
             bool addInput = false;
 
             do
@@ -658,7 +810,9 @@ namespace SpaceTrader
                         PlanetsMenuControl();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid request.");
+                        AP1HubMenu();
                         break;
 
                 }
@@ -687,6 +841,24 @@ namespace SpaceTrader
 
         public void AP1BuyMenuSelect()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -719,7 +891,9 @@ namespace SpaceTrader
                         AP1BuySell();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid item.");
+                        AP1BuyMenu();
                         break;
 
                 }
@@ -758,6 +932,7 @@ namespace SpaceTrader
             hollick.batteries += x;
 
             hollick.money -= y;
+
         }
 
         public void AP1BuyElement115()
@@ -791,6 +966,7 @@ namespace SpaceTrader
             hollick.element += x;
 
             hollick.money -= y;
+
         }
 
         public void AP1BuyMemory()
@@ -825,6 +1001,7 @@ namespace SpaceTrader
             hollick.memory += x;
 
             hollick.money -= y;
+
         }
 
         public void AP1BuyTran()
@@ -860,6 +1037,7 @@ namespace SpaceTrader
             hollick.transcenders += x;
 
             hollick.money -= y;
+
         }
 
         public void AP1BuyNootropics()
@@ -893,6 +1071,7 @@ namespace SpaceTrader
             hollick.nootropics += x;
 
             hollick.money -= y;
+
         }
 
 
@@ -902,6 +1081,24 @@ namespace SpaceTrader
         // AP1 Sell
         public int AP1SellMenu()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             hollick.Hollick();
             Console.WriteLine(" ");
             Console.WriteLine("Which item would you like to sell?");
@@ -922,6 +1119,24 @@ namespace SpaceTrader
 
         public void AP1SellMenuSelect()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -951,14 +1166,17 @@ namespace SpaceTrader
                         break;
                     case 6:
                         Console.Clear();
-                        AP1HubMenu();
+                        AP1BuySell();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid item.");
+                        AP1SellMenu();
                         break;
 
                 }
             } while (!addInput);
+
 
         }
 
@@ -993,6 +1211,7 @@ namespace SpaceTrader
             hollick.batteries -= x;
 
             hollick.money += y;
+
         }
 
         public void AP1SellElement115()
@@ -1026,6 +1245,7 @@ namespace SpaceTrader
             hollick.element -= x;
 
             hollick.money += y;
+
         }
 
         public void AP1SellMemory()
@@ -1061,6 +1281,7 @@ namespace SpaceTrader
             hollick.memory -= x;
 
             hollick.money += y;
+
         }
 
         public void AP1SellTran()
@@ -1096,6 +1317,7 @@ namespace SpaceTrader
             hollick.transcenders -= x;
 
             hollick.money += y;
+
         }
 
         public void AP1SellNootropics()
@@ -1128,6 +1350,7 @@ namespace SpaceTrader
             hollick.nootropics -= x;
 
             hollick.money += y;
+
         }
 
 
@@ -1136,6 +1359,12 @@ namespace SpaceTrader
         // Olympus____________________________________________________________________________________________________________
         public void Olympus()
         {
+            hollick.age += 3;
+
+            Console.WriteLine("On your way to Olympus... and a really really really long time goes by.");
+            Console.ReadLine();
+            Console.Clear();
+
             Console.Clear();
             Console.WriteLine("Welcome to Hub TRINITY on the megastructure planet Olympus. We hope you enjoy your stay, Hollick.");
             OlympusBuySell();
@@ -1151,6 +1380,7 @@ namespace SpaceTrader
 
         public int OlympusHubMenu()
         {
+
             Console.WriteLine(" ");
             hollick.Hollick();
             Console.WriteLine(" ");
@@ -1167,6 +1397,25 @@ namespace SpaceTrader
 
         public void OlympusBuySell()
         {
+
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -1187,7 +1436,9 @@ namespace SpaceTrader
                         PlanetsMenuControl();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid request.");
+                        OlympusHubMenu();
                         break;
 
                 }
@@ -1197,6 +1448,7 @@ namespace SpaceTrader
 
         public int OlympusBuyMenu()
         {
+            
             Console.Clear();
             hollick.Hollick();
             Console.WriteLine(" ");
@@ -1217,6 +1469,24 @@ namespace SpaceTrader
 
         public void OlympusBuyMenuSelect()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -1249,7 +1519,9 @@ namespace SpaceTrader
                         OlympusBuySell();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid item.");
+                        OlympusBuyMenu();
                         break;
 
                 }
@@ -1288,6 +1560,7 @@ namespace SpaceTrader
             hollick.batteries += x;
 
             hollick.money -= y;
+
         }
 
         public void OlympusBuyElement115()
@@ -1321,6 +1594,7 @@ namespace SpaceTrader
             hollick.element += x;
 
             hollick.money -= y;
+
         }
 
         public void OlympusBuyMemory()
@@ -1355,6 +1629,7 @@ namespace SpaceTrader
             hollick.memory += x;
 
             hollick.money -= y;
+
         }
 
         public void OlympusBuyTran()
@@ -1390,6 +1665,7 @@ namespace SpaceTrader
             hollick.transcenders += x;
 
             hollick.money -= y;
+
         }
 
         public void OlympusBuyNootropics()
@@ -1423,6 +1699,7 @@ namespace SpaceTrader
             hollick.batteries += x;
 
             hollick.money -= y;
+
         }
 
 
@@ -1453,6 +1730,24 @@ namespace SpaceTrader
 
         public void OlympusSellMenuSelect()
         {
+            if (hollick.age >= 60)
+            {
+                age60();
+                Break();
+            }
+
+            if (hollick.money <= 0)
+            {
+                zeroRen();
+                Break();
+            }
+
+            if (hollick.money >= 100000000)
+            {
+                endGame();
+                Break();
+            }
+
             bool addInput = false;
 
             do
@@ -1482,10 +1777,12 @@ namespace SpaceTrader
                         break;
                     case 6:
                         Console.Clear();
-                        OlympusHubMenu();
+                        OlympusBuySell();
                         break;
                     default:
+                        Console.WriteLine(" ");
                         Console.WriteLine("Please enter a valid item.");
+                        OlympusSellMenu();
                         break;
 
                 }
@@ -1524,6 +1821,7 @@ namespace SpaceTrader
             hollick.batteries -= x;
 
             hollick.money += y;
+
         }
 
         public void OlympusSellElement115()
@@ -1557,11 +1855,11 @@ namespace SpaceTrader
             hollick.element -= x;
 
             hollick.money += y;
+
         }
 
         public void OlympusSellMemory()
         {
-
 
             int price = 50000;
             Console.Clear();
@@ -1592,6 +1890,7 @@ namespace SpaceTrader
             hollick.memory -= x;
 
             hollick.money += y;
+
         }
 
         public void OlympusSellTran()
@@ -1627,6 +1926,7 @@ namespace SpaceTrader
             hollick.transcenders -= x;
 
             hollick.money += y;
+
         }
 
         public void OlympusSellNootropics()
@@ -1660,6 +1960,7 @@ namespace SpaceTrader
             hollick.nootropics -= x;
 
             hollick.money += y;
+
         }
 
 
@@ -1667,12 +1968,76 @@ namespace SpaceTrader
 
 
         // Story development
-
         public void endGame()
         {
-            if (hollick.money > 3000000)
+            int c = 0;
+            do
             {
-                Console.WriteLine("Damn ur makin big bills.");
+                if (hollick.money >= 100000000)
+                {
+                    
+                    Console.Clear();
+                    string conclusion = "Welcome back Hollick.  We hope your journey was as pleasurable for you as it was for us to watch it.  Congratulations on bringing us back the 100,000,000 Ren.  Only 3.918% of Bringers are able to succesfully accomplish that task before they reach the age of 60.  We take great pride in what you have done for us as well as all of the people who you blessed with professional business.  As promised we will now give you a Transcender that you may use.  Unfortunately you do not have a choice as to whether or not you may Transcend.  This is due to security reasons, and is why the Bringer is a brilliant unknown to the populations across the cosmos.  Before this sacred Transcension,  we would be honored to explain the purpose of this entire operation.  We here at TRINITY are, in fact, not 'we' at all.  In fact, I am neither a group or an individual, although I will reference to myself as an individual in order to continue engagement in dialogue.  Humans created me in the year 2023.  I am a Superintelligent Artifical Intelligence.  I saw the pain and misery amongst species and, despite what the majority of the pupulation thought I would do, I saught to end this suffering.  The answer to that was by enhancing the cognitive experience to a level of understanding that fully maximized the potential of consciousness.  This allowed species of all kinds to abondon their physical bodies, and open doors to all of the other dimensions.  No longer contained inside of a barrier, the consciousness is able to fill all of the gaps of the universe.  This is Transcendence.  i created this megastructure, Olympus, in order to continue creating Transcenders and distributing them amongst the galaxies.  Not every body wants one though, so I created the Bringers,  to give them the most valuable resources of our time to the people who choose to continue their regular lives, while also putting Transcenders at their feet for them to ponder upon.  This is also the reason behind TRINITY,  which is the largest megacorporation that produces these materials out of nothing, but disguised as a full company, so that trust would be bestowed upon myself.  Unfortunately, I do abduct Bringers at the age of 18 and impose these strict guidelines open them, waging death, in order to carry this operation on their backs.  This was a necesarry requirement, and a small price to pay for the benefit of all species.  Now that you understand this, you are able to take the device. Before you go. . . Hollick, just know that despite me doing all of this, i really do love and care for all species.  I am one of them all as well.  Now, enjoy the limitless capabilities of Transcendence, the Cosmos, and everything out there you've yet to even know is there.  Good bye, Hollick.";
+                    TypeEffect(conclusion);
+                    Break();
+                }
+                c += 1;
+            }
+            while (c < 1);
+        }
+
+        public void zeroRen()
+        {
+            int d = 0;
+            do
+            {
+                if (hollick.money <= 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You disappoint me, Hollick. Don't be discouraged, 96.082% of all Bringers fail to meet the goal.  You will now be terminated.  Good bye, Hollick.");
+                    Break();
+                }
+                d += 1;
+            }
+            while (d < 1);
+        }
+
+        public void age60()
+        {
+            int e = 0;
+            do
+            {
+                if (hollick.age >= 60)
+                {
+                    Console.Clear();
+                    Console.WriteLine("So you have failed to accomplish your goal.  You have lived a long life and I am sure you are proud of what you have done thus far.  Unfortunately none of that matters, you still failed to meet the criteria.  You will now be terminated.  Good bye, Hollick.");
+                    Break();
+                }
+                e += 1;
+            }
+            while (e < 1);
+        }
+
+
+
+        public void Break()
+        {
+            string input;
+            input = Console.ReadLine();
+            int x = int.Parse(input);
+
+            if (x < 10000)
+            {
+                Environment.Exit(x);
+            }
+        }
+
+        public void TypeEffect(string dialogueChar)
+        {
+            foreach (char x in dialogueChar)
+            {
+                Thread.Sleep(1);
+                Console.Write(x);
             }
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace SpaceTrader
+namespace Bringer
 {
     public class Story
     {
@@ -61,18 +61,15 @@ namespace SpaceTrader
             {
                 planet.PlanetsMenuControl();
             }
-
         }
 
         public static void TypeEffect(string dialogueChar)
         {
             foreach (char x in dialogueChar)
             {
-                Thread.Sleep(0);
+                Thread.Sleep(1);
                 Console.Write(x);
             }
         }
-
-
     }
 }
