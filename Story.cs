@@ -7,7 +7,7 @@ namespace Bringer
 {
     public class Story
     {
-        Player hollick;
+        Player hollick; 
         Planet planet;
 
         public Story(Player hollick)
